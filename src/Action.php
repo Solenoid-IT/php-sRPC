@@ -15,12 +15,14 @@ class Action
     public string $class;
     public string $method;
 
+    public string $class_path;
 
 
-    public function __construct (public string $route)
+
+    public function __construct (public string $request_path, public string $class_prefix = '/App/Endpoints')
     {
         // (Getting the values)
-        [ $endpoint, $action ] = explode( '?m=', $route, 2 );
+        [ $endpoint, $action ] = explode( '?m=', $request_path, 2 );
 
         if ( !isset( $action ) || empty( $action ) )
         {// Value not found
@@ -48,9 +50,9 @@ class Action
 
 
         // (Getting the value)
-        $class = str_replace( '/', '\\', $class );
+        $class_path = str_replace( '/', '\\', "$class_prefix/$class" );
 
-        if ( !class_exists( $class ) )
+        if ( !class_exists( $class_path ) )
         {// (Class not found)
             // (Getting the value)
             $this->error = new Error( 404, 'sRPC :: CLASS_NOT_FOUND' );
@@ -61,7 +63,7 @@ class Action
 
 
 
-        if ( !method_exists( $class, $method ) )
+        if ( !method_exists( $class_path, $method ) )
         {// (Method not found)
             // (Getting the value)
             $this->error = new Error( 404, 'sRPC :: METHOD_NOT_FOUND' );
@@ -73,9 +75,10 @@ class Action
 
 
         // (Getting the values)
-        $this->endpoint = $endpoint;
-        $this->class    = $class;
-        $this->method   = $method;
+        $this->endpoint   = $endpoint;
+        $this->class      = $class;
+        $this->method     = $method;
+        $this->class_path = $class_path;
     }
 
 
