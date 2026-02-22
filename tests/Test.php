@@ -11,8 +11,8 @@ $action = new Action( '/api/user?m=Home/Door.open' );
 
 if ( $action->error )
 {// (Error found)
-    // (Getting the value)
-    echo $action->error->message;
+    // (Sending the error)
+    echo $action->error->send();
 }
 
 
