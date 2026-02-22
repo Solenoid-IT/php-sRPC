@@ -11,6 +11,7 @@ class Action
     public Error|null $error = null;
 
     public string $endpoint;
+
     public string $class;
     public string $method;
 
@@ -21,7 +22,7 @@ class Action
         // (Getting the values)
         [ $endpoint, $action ] = explode( '?m=', $route, 2 );
 
-        if ( !isset( $action ) )
+        if ( !isset( $action ) || empty( $action ) )
         {// Value not found
             // (Getting the value)
             $this->error = new Error( 400, 'sRPC :: ACTION_NOT_SET' );
@@ -35,7 +36,7 @@ class Action
         // (Getting the values)
         [ $class, $method ] = explode( '.', $action, 2 );
 
-        if ( !isset( $method ) )
+        if ( !isset( $method ) || empty( $method ) )
         {// Value not found
             // (Getting the value)
             $this->error = new Error( 400, 'sRPC :: ACTION_NOT_VALID' );

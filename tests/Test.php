@@ -2,6 +2,11 @@
 
 
 
+// (Including the file)
+include_once( __DIR__ . '/../vendor/autoload.php' );
+
+
+
 use \Solenoid\sRPC\Action;
 
 
