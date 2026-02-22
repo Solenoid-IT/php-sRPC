@@ -1,0 +1,24 @@
+{
+    "name": "solenoid/php-srpc",
+    "description": "sRPC library for PHP",
+    "type": "library",
+    "keywords": ["http","sRPC"],
+    "homepage": "https://github.com/Solenoid-IT/php-sRPC",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pier Niccolò Giannelli",
+            "email": "pierniccologiannelli@gmail.com",
+            "homepage": "https://www.solenoid.it",
+            "role": "Full Stack Web Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Solenoid\\sRPC\\": "src"
+        }
+    }
+}
