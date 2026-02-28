@@ -27,7 +27,7 @@ class Action
         if ( !isset( $action ) || empty( $action ) )
         {// Value not found
             // (Getting the value)
-            $this->error = new Error( 400, 'sRPC :: ACTION_NOT_SET' );
+            $this->error = new Error( 400, 'sRPC :: ACTION NOT SET' );
 
             // Returning the value
             return;
@@ -41,7 +41,7 @@ class Action
         if ( !isset( $method ) || empty( $method ) )
         {// Value not found
             // (Getting the value)
-            $this->error = new Error( 400, 'sRPC :: ACTION_NOT_VALID' );
+            $this->error = new Error( 400, 'sRPC :: ACTION NOT VALID' );
 
             // Returning the value
             return;
@@ -55,7 +55,7 @@ class Action
         if ( !class_exists( $class_path ) )
         {// (Class not found)
             // (Getting the value)
-            $this->error = new Error( 404, 'sRPC :: CLASS_NOT_FOUND' );
+            $this->error = new Error( 404, 'sRPC :: CLASS NOT FOUND' );
 
             // Returning the value
             return;
@@ -66,7 +66,7 @@ class Action
         if ( !method_exists( $class_path, $method ) )
         {// (Method not found)
             // (Getting the value)
-            $this->error = new Error( 404, 'sRPC :: METHOD_NOT_FOUND' );
+            $this->error = new Error( 404, 'sRPC :: METHOD NOT FOUND' );
 
             // Returning the value
             return;
