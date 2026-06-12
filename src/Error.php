@@ -19,7 +19,7 @@ class Error
 
         // (Setting the headers)
         header( 'Content-Type: text/plain' );
-        header( 'sRPC-Error: 1' );
+        header( 'sRPC-Error: 2' );
 
         // Printing the value
         echo $this->message;

@@ -2,22 +2,33 @@
 
 
 
-// (Including the file)
+// (Including files)
 include_once( __DIR__ . '/../vendor/autoload.php' );
+include_once( __DIR__ . '/app/Endpoints/Public/Auth/User.php' );
 
 
 
-use \Solenoid\sRPC\Action;
+use \Solenoid\sRPC\Procedure;
 
 
 
 // (Getting the value)
-$action = new Action( '/api/user?m=Home/Door.open' );
+$procedure = new Procedure( '/api/public?p=Auth/User.login', '/App/Endpoints/Public' );
 
-if ( $action->error )
+
+
+// (Getting the value)
+$protocol_error = $procedure->get_protocol_error();
+
+if ( $protocol_error )
 {// (Error found)
     // (Sending the error)
-    echo $action->error->send();
+    $protocol_error->send();
+}
+else
+{// (No error found)
+    // Printing the value
+    print_r( $procedure );
 }
 
 
