@@ -17,9 +17,18 @@ class Error
         // (Setting the code)
         http_response_code( $this->http_code );
 
-        // (Setting the headers)
+
+
+        // (Sending the header)
         header( 'Content-Type: text/plain' );
-        header( 'sRPC-Error: 2' );
+
+        if ( $this->http_code >= 400 )
+        {// (Error found)
+            // (Sending the header)
+            header( 'sRPC-Error: ' . ( $this->http_code === 400 ? 2 : 3 ) );
+        }
+
+
 
         // Printing the value
         echo $this->message;

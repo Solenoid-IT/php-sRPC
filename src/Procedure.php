@@ -35,7 +35,7 @@ class Procedure
         if ( !isset( $procedure ) || empty( $procedure ) )
         {// Value not found
             // (Getting the value)
-            $this->error = new Error( 404, 'sRPC :: Procedure Not Found' );
+            $this->error = new Error( 400, 'sRPC :: Missing Procedure Selector' );
 
             // Returning the value
             return;
@@ -49,7 +49,7 @@ class Procedure
         if ( !isset( $method ) || empty( $method ) )
         {// Value not found
             // (Getting the value)
-            $this->error = new Error( 404, 'sRPC :: Procedure Not Found' );
+            $this->error = new Error( 400, 'sRPC :: Missing Procedure Selector' );
 
             // Returning the value
             return;
