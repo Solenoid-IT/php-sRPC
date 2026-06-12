@@ -4,7 +4,7 @@ All changes of code will be reported here.
 
 ## [1.1.1] - 2026-06-12
 
-### Added
+### Fixed
 - Procedure error checker with support for all of sRPC protocol error categories
 
 ## [1.1.0] - 2026-06-12
